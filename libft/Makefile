@@ -6,7 +6,7 @@
 #    By: amerrouc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 15:59:18 by amerrouc          #+#    #+#              #
-#    Updated: 2018/11/22 12:48:51 by amerrouc         ###   ########.fr        #
+#    Updated: 2018/11/22 13:08:27 by prastoin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC = ft_strlen.c	\
 	  ft_strrchr.c	\
 	  ft_strstr.c	\
 	  ft_strnstr.c	\
+	  ft_isupper.c	\
 	  ft_strcmp.c	\
 	  ft_strncmp.c	\
 	  ft_atoi.c		\
@@ -71,11 +72,14 @@ SRC = ft_strlen.c	\
 	  ft_lstiter.c	\
 	  ft_lstmap.c	\
 	  ft_sqrt.c		\
-	  ft_power.c	\
-	  ft_factorial.c	\
-	  ft_is_prime.c	\
 	  ft_strrev.c	\
-	  get_next_line.c
+	  get_next_line.c \
+	  ft_iterative_factorial.c	\
+	  ft_str_is_alpha.c	\
+	  ft_str_is_lowercase.c	\
+	  ft_str_is_numeric.c	\
+	  ft_str_is_uppercase	\
+	  ft_strcapitalize.c	\
 
 INC = -Iincludes/
 

@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 16:56:11 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/22 11:51:04 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/22 13:04:23 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int		vtetri(const char *line, int diez)
 	return (diez);
 }
 
-int		verif1(const char *line, size_t nline)
+int		verif1(const char *line)
 {
 	static	int	count;
 	static	int	diez;
@@ -42,7 +42,7 @@ int		verif1(const char *line, size_t nline)
 
 	if (count != 4)
 	{
-		if ((tmp = tetri(line, diez)) == -1)
+		if ((tmp = vtetri(line, diez)) == -1)
 			return (-1);
 		diez = diez + tmp;
 	}
@@ -88,9 +88,8 @@ static int		vdiez2(char const **tab, int y, int x)
 		if (ft_isupper(tab[y][x + 1]) != 0 || ft_isupper(tab[y - 1][x]) != 0
 		|| ft_isupper(tab[y + 1][x]) != 0)
 			return (1);
-		else
-			return (-1);
 	}
+	return (-1);
 }
 
 static int		vdiez(char const **tab, int y, int x)
@@ -104,7 +103,7 @@ static int		vdiez(char const **tab, int y, int x)
 		return (-1);
 }
 
-int		verif2(const char **tab, size_t nline)
+int		verif2(const char **tab)
 {
 	int		y;
 	int		x;

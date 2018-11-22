@@ -6,16 +6,23 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 14:48:43 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/21 09:03:10 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/22 13:08:30 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# define BUFF_SIZE 4096
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+# include <sys/types.h>
+# include <sys/uio.h>
+# include <limits.h>
+
+int		ft_isupper(int c);
+int		get_next_line(const int fd, char **line);
 
 typedef struct	s_list
 {

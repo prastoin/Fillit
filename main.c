@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:27:30 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/22 12:42:25 by amerrouc         ###   ########.fr       */
+/*   Updated: 2018/11/22 12:53:00 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int			main(int argc, const char *argv[])
 	i = 0;
 	while ((tet = get_next_line(fd,&line) > 0))
 	{
-		if (verif1(line, i) == -1)
+		if (verif1(line) == -1)
 			return (ft_error());
 		if (abc(&line) == -1)
 			return (ft_error());
@@ -51,7 +51,7 @@ int			main(int argc, const char *argv[])
 		i++;
 	}
 	tab[i] = NULL;
-	if (verif2((const char **)tab, i) == -1)
+	if (verif2((const char **)tab) == -1)
 		return (ft_error());
 	return (0);
 }

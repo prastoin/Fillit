@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 11:27:40 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/22 12:27:37 by amerrouc         ###   ########.fr       */
+/*   Updated: 2018/11/22 13:06:10 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		abc(char **str)
 {
 	int				i;
-	static	char	*a;
+	static	char	a;
 	static int		count;
 
 	i = 0;
@@ -25,10 +25,10 @@ int		abc(char **str)
 	{
 		if (a >= 'Z' + 1)
 			return (-1);
-		while (str[i] != '\0')
+		while (*str[i] != '\0')
 		{
-			if (str[i] == '#')
-				str[i] = a;
+			if (*str[i] == '#')
+				*str[i] = a;
 			i++;
 		}
 	}

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_factorial.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amerrouc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/08 20:55:42 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/22 13:19:55 by prastoin         ###   ########.fr       */
+/*   Created: 2018/11/14 14:51:19 by amerrouc          #+#    #+#             */
+/*   Updated: 2018/11/14 15:25:14 by amerrouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_str_is_uppercase(char *str)
+int	ft_factorial(int nb)
 {
-	int i;
+	int fact;
 
-	i = 0;
-	while (str[i] >= 'A' && str[i] <= 'Z')
-		i++;
-	if (str[i] == '\0')
+	if (nb == 0)
 		return (1);
-	return (0);
+	if ((nb < 0) || (nb > 12))
+		return (0);
+	fact = nb * ft_factorial(nb - 1);
+	return (fact);
 }

@@ -6,11 +6,11 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 13:22:56 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/20 15:22:40 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/22 13:17:17 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 static char	*ft_strndup(const char *s1, size_t n)
 {

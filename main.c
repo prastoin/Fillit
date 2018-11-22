@@ -6,11 +6,12 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:27:30 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/22 12:53:00 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/22 13:29:29 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 static int	filltab(char **tab, char *line, size_t i)
 {
@@ -42,6 +43,7 @@ int			main(int argc, const char *argv[])
 	i = 0;
 	while ((tet = get_next_line(fd,&line) > 0))
 	{
+		printf("LINE = %s\n", line);
 		if (verif1(line) == -1)
 			return (ft_error());
 		if (abc(&line) == -1)
@@ -53,5 +55,13 @@ int			main(int argc, const char *argv[])
 	tab[i] = NULL;
 	if (verif2((const char **)tab) == -1)
 		return (ft_error());
+	int k;
+	k = 0;
+
+	while (tab[k])
+	{
+		printf("%s\n", tab[k]);
+		k++;
+	}
 	return (0);
 }

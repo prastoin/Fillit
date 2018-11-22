@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 14:48:43 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/22 13:08:30 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/22 13:16:40 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
 
 int		ft_isupper(int c);
 int		get_next_line(const int fd, char **line);
+
+int		ft_factorial(int nb);
+int		ft_is_prime(int nb);
+int		ft_power(int nb, int power);
 
 typedef struct	s_list
 {
@@ -97,7 +101,6 @@ void			ft_putnbr_fd(int n, int fd);
 
 char			*ft_strrev(char *s1);
 int				ft_sqrt(int nb);
-int				ft_iterative_factorial(int nb);
 char			*ft_strcapitalize(char *str);
 int				ft_str_is_uppercase(char *str);
 int				ft_str_is_alpha(char *str);

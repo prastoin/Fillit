@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amerrouc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/08 20:55:42 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/22 13:19:55 by prastoin         ###   ########.fr       */
+/*   Created: 2018/11/14 14:50:48 by amerrouc          #+#    #+#             */
+/*   Updated: 2018/11/14 15:25:27 by amerrouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_str_is_uppercase(char *str)
+int	ft_power(int nb, int power)
 {
-	int i;
+	int	nb_pwr;
 
-	i = 0;
-	while (str[i] >= 'A' && str[i] <= 'Z')
-		i++;
-	if (str[i] == '\0')
+	nb_pwr = nb;
+	if (power < 0)
+		return (0);
+	if (power == 0)
 		return (1);
-	return (0);
+	if (power == 1)
+		return (nb_pwr);
+	nb_pwr = nb * ft_power(nb, power - 1);
+	return (nb_pwr);
 }

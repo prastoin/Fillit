@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:28:08 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/22 12:53:52 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/22 14:23:45 by amerrouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		verif1(const char *line);
 int		verif2(const char **tab);
 int		ft_error(void);
 int		abc(char **str);
+void	mv_piece(char **sqr);
 
 #endif

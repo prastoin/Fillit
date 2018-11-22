@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:27:30 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/22 13:29:29 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/22 17:33:53 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int			main(int argc, const char *argv[])
 		printf("LINE = %s\n", line);
 		if (verif1(line) == -1)
 			return (ft_error());
-		if (abc(&line) == -1)
+		if (abc(line) == -1)
 			return (ft_error());
 		if (!(filltab(tab, line, i)))
 			return (-1);
@@ -54,6 +54,9 @@ int			main(int argc, const char *argv[])
 	}
 	tab[i] = NULL;
 	if (verif2((const char **)tab) == -1)
+		return (ft_error());
+	printf("tout est ok jusaue ici\n");
+	if (valid((const char **)tab) == -1)
 		return (ft_error());
 	int k;
 	k = 0;

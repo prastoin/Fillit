@@ -6,23 +6,22 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 16:56:11 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/22 13:04:23 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/22 17:33:23 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int		vtetri(const char *line, int diez)
+static int		vtetri(const char *line)
 {
-	int		nb;
 	int		i;
+	int		diez;
 
+	diez = 0;
 	i = 0;
-	nb = 0;
-		return (-1);
 	if (ft_strlen(line) != 4)
 		return (-1);
-	while (i < 4)
+	while (line[i])
 	{
 		if (line[i] != '#' && line[i] != '.')
 			return (-1);
@@ -40,21 +39,24 @@ int		verif1(const char *line)
 	static	int	tetri;
 	int			tmp;
 
+	tmp = 0;
+	printf("count de veri = %d\n", count);
 	if (count != 4)
 	{
-		if ((tmp = vtetri(line, diez)) == -1)
+		if ((tmp = vtetri(line)) == -1)
 			return (-1);
-		diez = diez + tmp;
+		diez += tmp;
 	}
 	else
 	{
 		if (line[0] != '\0')
 			return (-1);
 	}
+	printf("%d\n", diez);
 	if (count == 4)
 	{
 		tetri++;
-		count = 0;
+		count = -1;
 		if (diez != 4)
 			return (-1);
 		else
@@ -116,6 +118,7 @@ int		verif2(const char **tab)
 	y = 0;
 	while (tab[y] != '\0')
 	{
+		x = 0;
 		while(tab[y][x] != '\0')
 		{
 			if (ft_isupper(tab[y][x]) != 0)

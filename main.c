@@ -6,26 +6,27 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:27:30 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/22 11:50:08 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/22 12:42:25 by amerrouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void	filltab(char **tab, char *line, size_t i)
+static int	filltab(char **tab, char *line, size_t i)
 {
 	if (!(tab[i] = (char *)malloc(sizeof(char) * ft_strlen(line) + 1)))
-		return (NULL);
+		return (0);
 	tab[i] = line;
-	return ();
+	return (1);
 }
 
-void	ft_error(void)
+int			ft_error(void)
 {
 	ft_putstr("error\n");
+	return (-1);
 }
 
-int main(int argc, const char *argv[])
+int			main(int argc, const char *argv[])
 {
 	int		tet;
 	char	*line;
@@ -33,9 +34,11 @@ int main(int argc, const char *argv[])
 	int		fd;
 	char	**tab;
 
+	if (argc != 2)
+		return (ft_error());
 	if (!(tab = ((char **)malloc(sizeof(char *) * 130))))
 		return (ft_error());
-	fd = open(argv[1], O_READONLY);
+	fd = open(argv[1], O_RDONLY);
 	i = 0;
 	while ((tet = get_next_line(fd,&line) > 0))
 	{
@@ -44,11 +47,11 @@ int main(int argc, const char *argv[])
 		if (abc(&line) == -1)
 			return (ft_error());
 		if (!(filltab(tab, line, i)))
-			return (NULL);
+			return (-1);
 		i++;
 	}
 	tab[i] = NULL;
-	if (verif2(tab, i) == -1)
+	if (verif2((const char **)tab, i) == -1)
 		return (ft_error());
 	return (0);
 }

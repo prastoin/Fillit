@@ -6,13 +6,13 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 11:27:40 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/22 11:49:59 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/22 12:27:37 by amerrouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		abc(char **str, int count)
+int		abc(char **str)
 {
 	int				i;
 	static	char	*a;

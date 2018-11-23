@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 11:27:40 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/22 17:36:47 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/23 10:38:14 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,38 +42,51 @@ int		abc(char *str)
 	return (1);
 }
 
-int		mlink(char const **tab, int y, int x, int occ)
+int		mlink(char const **tab, int y, int x)
 {
-	if ((occ < 7) && (x + 1) && ft_isupper(tab[y][x + 1]) == 1)
-		mlink(tab, y, ++x, ++occ);
-	if ((occ < 7) && (x - 1) != -1 && ft_isupper(tab[y][x - 1]) == 1)
-		mlink(tab, y, --x, ++occ);
-	if ((occ < 7) && (y + 1) != 5 && ft_isupper(tab[y + 1][x]) == 1)
-		mlink(tab, ++y, x, ++occ);
-	if ((occ < 7) && (y - 1) != -1 && ft_isupper(tab[y - 1][x]) == 1)
-		mlink(tab, --y, x, ++occ);
-	printf("%d\n", occ);
-	if (occ == 6)
-		return (1);
-	return (-1);
+	int		occ;
+
+	occ = 0;
+	if ((x + 1) != 5 && ft_isupper(tab[y][x + 1]) == 1)
+		occ++;
+	if ((x - 1) != -1 && ft_isupper(tab[y][x - 1]) == 1)
+		occ++;
+	if ((y + 1) != 5 && ft_isupper(tab[y + 1][x]) == 1)
+		occ++;;
+	if ((y - 1) != -1 && ft_isupper(tab[y - 1][x]) == 1)
+		occ++;
+	printf("OCC DANS mlink %d\n", occ);
+	return (occ);
 }
 
-int		valid(char const **tab)
+int		valid(char const **tab, int nline)
 {
 	static int	y;
 	static int	x;
-	static int	occ;
+	int			occ;
+	int			tmp;
 
-	while (tab[y])
+	occ = 0;
+	tmp = 0;
+	printf("ok\n");
+	(void)nline;
+	while (tab[y][0] != '\0')
 	{
 		x = 0;
 		while(tab[y][x])
 		{
 			if (ft_isupper(tab[y][x]) == 1)
-				return (mlink(tab, y, x, occ));
+			{
+				tmp = mlink(tab, y, x);
+						occ += tmp;
+			}
 			x++;
 		}
 		y++;
 	}
-	return (-1);
+	printf("OCC =%d\n", occ);
+	if (occ != 6)
+		return (-1);
+	y++;
+	return (1);
 }

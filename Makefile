@@ -6,7 +6,7 @@
 #    By: amerrouc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/21 16:50:34 by amerrouc          #+#    #+#              #
-#    Updated: 2018/11/22 14:24:02 by amerrouc         ###   ########.fr        #
+#    Updated: 2018/11/23 09:19:00 by prastoin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ $(LIB):
 	make -C ./libft/
 
 %.o: %.c
-	gcc $(FLAG) $(INC) -o $@ -c $< 
+	gcc -g $(FLAG) $(INC) -o $@ -c $< 
 
 clean:
 	rm -rf $(OBJ)

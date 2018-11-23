@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:27:30 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/22 17:33:53 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/23 10:28:36 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,22 @@ int			ft_error(void)
 	return (-1);
 }
 
+int		nbtetri(char const **tab)
+{
+	int	i;
+	int	count;
+
+	count = 1;
+	i = 0;
+	while (tab[i])
+	{
+		if (tab[i][0] == '\0')
+			count++;
+		i++;
+	}
+	return (count);
+}
+
 int			main(int argc, const char *argv[])
 {
 	int		tet;
@@ -34,6 +50,7 @@ int			main(int argc, const char *argv[])
 	size_t	i;
 	int		fd;
 	char	**tab;
+	int		nb;
 
 	if (argc != 2)
 		return (ft_error());
@@ -43,7 +60,6 @@ int			main(int argc, const char *argv[])
 	i = 0;
 	while ((tet = get_next_line(fd,&line) > 0))
 	{
-		printf("LINE = %s\n", line);
 		if (verif1(line) == -1)
 			return (ft_error());
 		if (abc(line) == -1)
@@ -56,8 +72,13 @@ int			main(int argc, const char *argv[])
 	if (verif2((const char **)tab) == -1)
 		return (ft_error());
 	printf("tout est ok jusaue ici\n");
-	if (valid((const char **)tab) == -1)
-		return (ft_error());
+	nb = nbtetri((char const **)tab);
+	while (tet < nb)
+	{
+		if (valid((const char **)tab, nb) == -1)
+			return (ft_error());
+		tet++;
+	}
 	int k;
 	k = 0;
 

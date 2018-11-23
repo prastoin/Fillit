@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:27:30 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/23 10:28:36 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/23 11:27:48 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,7 @@ int			main(int argc, const char *argv[])
 		return (ft_error());
 	printf("tout est ok jusaue ici\n");
 	nb = nbtetri((char const **)tab);
-	while (tet < nb)
-	{
-		if (valid((const char **)tab, nb) == -1)
-			return (ft_error());
-		tet++;
-	}
-	int k;
+		int k;
 	k = 0;
 
 	while (tab[k])
@@ -87,5 +81,13 @@ int			main(int argc, const char *argv[])
 		printf("%s\n", tab[k]);
 		k++;
 	}
+	while (tet < nb - 1)
+	{
+		if (valid((const char **)tab, nb) == -1)
+			return (ft_error());
+		tet++;
+	printf("TET %d nb %d\n", tet, nb);
+	}
+	printf("OK POUR TOUT\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 11:27:40 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/23 11:23:50 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/23 11:41:57 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int		abc(char *str)
 		a++;
 	}
 	count++;
-	printf("ok\n");
 	return (1);
 }
 
@@ -55,31 +54,25 @@ int		mlink(char const **tab, int y, int x)
 		occ++;;
 	if ((y - 1) != -1 && ft_isupper(tab[y - 1][x]) == 1)
 		occ++;
-	printf("OCC DANS mlink %d\n", occ);
 	return (occ);
 }
 
-int		valid(char const **tab, int nline)
+int		valid(char const **tab)
 {
 	static int	y;
 	int			x;
 	int			occ;
 	int			tmp;
 
-	x = 0;
 	occ = 0;
 	tmp = 0;
-	printf("ok\n");
-	(void)nline;
 	while (tab[y][0] != '\0' && tab[y] != NULL)
 	{
 		x = 0;
 		while(tab[y][x] != '\0')
 		{
-			printf("CECI est y = %d et x = %d %s\n", y, x,tab[y]);
 			if (ft_isupper(tab[y][x]) == 1)
 			{
-				printf("OE OE\n");
 				tmp = mlink(tab, y, x);
 				occ += tmp;
 			}
@@ -87,7 +80,6 @@ int		valid(char const **tab, int nline)
 		}
 		y++;
 	}
-	printf("OCC =%d\n", occ);
 	if (occ != 6)
 		return (-1);
 	y++;

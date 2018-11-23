@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:27:30 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/23 11:27:48 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/23 11:46:28 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int			ft_error(void)
 	return (-1);
 }
 
-int		nbtetri(char const **tab)
+int			nbtetri(char const **tab)
 {
 	int	i;
 	int	count;
@@ -69,11 +69,17 @@ int			main(int argc, const char *argv[])
 		i++;
 	}
 	tab[i] = NULL;
+	if ((nb = nbtetri((char const **)tab)) > 26)
+		return (-1);
 	if (verif2((const char **)tab) == -1)
 		return (ft_error());
-	printf("tout est ok jusaue ici\n");
-	nb = nbtetri((char const **)tab);
-		int k;
+	while (tet < nb - 1)
+	{
+		if (valid((const char **)tab) == -1)
+			return (ft_error());
+		tet++;
+	}
+	int k;
 	k = 0;
 
 	while (tab[k])
@@ -81,13 +87,5 @@ int			main(int argc, const char *argv[])
 		printf("%s\n", tab[k]);
 		k++;
 	}
-	while (tet < nb - 1)
-	{
-		if (valid((const char **)tab, nb) == -1)
-			return (ft_error());
-		tet++;
-	printf("TET %d nb %d\n", tet, nb);
-	}
-	printf("OK POUR TOUT\n");
 	return (0);
 }

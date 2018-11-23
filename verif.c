@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 16:56:11 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/22 17:33:23 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/23 11:47:18 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,9 @@ int		verif1(const char *line)
 {
 	static	int	count;
 	static	int	diez;
-	static	int	tetri;
 	int			tmp;
 
 	tmp = 0;
-	printf("count de veri = %d\n", count);
 	if (count != 4)
 	{
 		if ((tmp = vtetri(line)) == -1)
@@ -48,22 +46,16 @@ int		verif1(const char *line)
 		diez += tmp;
 	}
 	else
-	{
 		if (line[0] != '\0')
 			return (-1);
-	}
-	printf("%d\n", diez);
 	if (count == 4)
 	{
-		tetri++;
 		count = -1;
 		if (diez != 4)
 			return (-1);
 		else
 			diez = 0;
 	}
-	if (tetri > 26)
-		return (-1);
 	count++;
 	return (1);
 }
@@ -109,11 +101,7 @@ int		verif2(const char **tab)
 {
 	int		y;
 	int		x;
-	int		i;
-	int		j;
 
-	j = 0;
-	i = 0;
 	x = 0;
 	y = 0;
 	while (tab[y] != '\0')

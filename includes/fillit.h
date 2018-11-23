@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:28:08 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/23 10:35:40 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/23 11:40:22 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <limits.h>
 # include <stdio.h>
 
-int		valid(const char **tab, int nline);
+int		valid(const char **tab);
 int		verif1(const char *line);
 int		verif2(const char **tab);
 int		ft_error(void);

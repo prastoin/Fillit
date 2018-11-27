@@ -6,13 +6,14 @@
 #    By: amerrouc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/21 16:50:34 by amerrouc          #+#    #+#              #
-#    Updated: 2018/11/23 09:19:00 by prastoin         ###   ########.fr        #
+#    Updated: 2018/11/25 14:04:03 by prastoin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
-SRC = main.c verif.c abc.c mv_piece.c
+SRC = main.c verif.c abc.c mv_piece.c algo.c put_piece.c rm_piece.c	\
+	  size_piece.c ft_sqrt_close.c
 
 OBJ = $(SRC:.c=.o)
 

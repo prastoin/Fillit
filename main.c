@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:27:30 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/23 16:27:38 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/27 14:57:08 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,70 @@ int			main(int argc, const char *argv[])
 		tet++;
 	}
 	int k;
+	k = -1;
+	printf("nb :%d\n", nb);
+	while (++k < nb)
+		mv_piece(tab + 4 * k + k);
 	k = 0;
-
 	while (tab[k])
 	{
 		printf("%s\n", tab[k]);
 		k++;
+	}
+	t_struct	piece[nb];
+	int l;
+	char	**map;
+	int size;
+	int	put;
+	int	z;
+
+	z = 0;
+	l = 0;
+	while (l < nb)
+		piece[l++].c = 0;
+	l = 0;
+	map = create_map(nb);
+	while (map[z])
+	{
+		printf("%s\n", map[z]);
+		z++;
+	}
+	size = ft_strlen(map[0]);
+	while (l < nb)
+	{
+		if (!ft_isupper(piece[l].c))
+			piece[l] = str_to_struc(tab + 4 * l + l);
+		put = put_piece(map, size, piece + l);
+		if (!put)
+		{
+	printf("map creat\n");
+			if (l != 0)
+				l--;
+			rm_piece(map, &piece[l], 4);
+			printf("x :%d\ty :%d\n", piece[l].posx, piece[l].posy);
+			piece[l].posx++;
+			printf("x :%d\ty :%d\n", piece[l].posx, piece[l].posy);
+			k = -1;
+			printf("retirer %c\n", piece[l].c);
+			if (l < nb - 2)
+				rm_piece(map,&piece[l + 1], -1);
+			while (++k < size)
+				printf("%s\n",map[k]);
+			l--;
+		}
+		printf("\n");
+		k = -1;
+		while (++k < size)
+			printf("%s\n",map[k]);
+		l++;
+		if (!(put) && l == 0)
+		{
+			z++;
+			map = create_map(nb + z);
+			printf("create map qui chie\n");
+			ft_reset_pos(piece, nb);
+			l = 0;
+		}
 	}
 	return (0);
 }

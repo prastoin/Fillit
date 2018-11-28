@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:28:08 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/25 13:48:51 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/28 09:25:22 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct	s_truct
 int				valid(const char **tab);
 int				verif1(const char *line);
 int				verif2(const char **tab);
-int				ft_error(void);
+int				ft_error(char **tab);
 int				abc(char *str);
 void			mv_piece(char **sqr);
 void			rm_piece(char **map, t_struct *piece, int bloc);

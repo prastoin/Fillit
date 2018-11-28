@@ -6,7 +6,7 @@
 /*   By: amerrouc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 13:36:07 by amerrouc          #+#    #+#             */
-/*   Updated: 2018/11/25 12:26:45 by amerrouc         ###   ########.fr       */
+/*   Updated: 2018/11/28 07:29:53 by amerrouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ t_struct	str_to_struc(char **sqr)
 	bloc = 0;
 	piece.c = '\0';
 	i = 0;
-	piece.posx = 0;
-	piece.posy = 0;
+	piece.posx = -1;
+	piece.posy = -1;
 	while (i < 4)
 	{
 		j = 0;

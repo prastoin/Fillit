@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 16:56:11 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/23 11:47:18 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/28 11:27:47 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ static int		vtetri(const char *line)
 {
 	int		i;
 	int		diez;
+	int		len;
 
 	diez = 0;
 	i = 0;
-	if (ft_strlen(line) != 4)
+	if ((len = ft_strlen(line)) != 4)
 		return (-1);
 	while (line[i])
 	{
@@ -39,25 +40,26 @@ int		verif1(const char *line)
 	int			tmp;
 
 	tmp = 0;
-	if (count != 4)
+	if (count <= 3)
 	{
 		if ((tmp = vtetri(line)) == -1)
 			return (-1);
 		diez += tmp;
 	}
 	else
-		if (line[0] != '\0')
-			return (-1);
-	if (count == 4)
 	{
 		count = -1;
+		if (line[0] != '\0')
+			return (-1);
+	}
+	if (count == 3)
+	{
 		if (diez != 4)
 			return (-1);
 		else
 			diez = 0;
 	}
-	count++;
-	return (1);
+	return (++count);
 }
 
 static int		vdiez2(char const **tab, int y, int x)

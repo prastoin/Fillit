@@ -6,7 +6,7 @@
 /*   By: amerrouc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 17:09:30 by amerrouc          #+#    #+#             */
-/*   Updated: 2018/11/25 13:06:34 by amerrouc         ###   ########.fr       */
+/*   Updated: 2018/11/28 08:07:21 by amerrouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ int		put_piece(char **map, int size, t_struct *piece)
 
 	bloc = 0;
 	put = 0;
+	if (piece->posx == -1)
+	{
+		piece->posx = 0;
+		piece->posy = 0;
+	}
 	while (!put && piece->posy < size)
 	{
 		while (!put && piece->posx < size)
@@ -52,5 +57,7 @@ int		put_piece(char **map, int size, t_struct *piece)
 		piece->posy++;
 		piece->posx = 0;
 	}
+	piece->posx = -1;
+	piece->posy = -1;
 	return (put);
 }

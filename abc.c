@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 11:27:40 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/23 11:41:57 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/28 10:43:26 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int		abc(char *str)
 	static int		count;
 
 	i = 0;
+	if (!(str))
+		return (1);
 	if (!(a))
 		a = 'A';
 	if (count != 4)
@@ -35,6 +37,8 @@ int		abc(char *str)
 	if (count == 4)
 	{
 		count = -1;
+		if ((a + 1) == ('Z' + 1))
+			return (-1);
 		a++;
 	}
 	count++;

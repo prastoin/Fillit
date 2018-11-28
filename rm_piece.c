@@ -6,7 +6,7 @@
 /*   By: amerrouc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 16:06:19 by amerrouc          #+#    #+#             */
-/*   Updated: 2018/11/25 13:50:44 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/28 07:58:54 by amerrouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ void	rm_piece(char **map, t_struct *piece, int bloc)
 	int	x;
 	int	y;
 
-	if (bloc == -1)
+	if (bloc == -1 || piece->posx == -1)
 	{
-		piece->posx = 0;
-		piece->posy = 0;
+		piece->posx = -1;
+		piece->posy = -1;
+		bloc = -1;
 	}
 	while (bloc > 0)
 	{

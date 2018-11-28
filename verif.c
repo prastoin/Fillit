@@ -6,13 +6,13 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 16:56:11 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/28 11:27:47 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/28 11:57:56 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int		vtetri(const char *line)
+static int	vtetri(const char *line)
 {
 	int		i;
 	int		diez;
@@ -33,7 +33,7 @@ static int		vtetri(const char *line)
 	return (diez);
 }
 
-int		verif1(const char *line)
+int			verif1(const char *line)
 {
 	static	int	count;
 	static	int	diez;
@@ -62,7 +62,7 @@ int		verif1(const char *line)
 	return (++count);
 }
 
-static int		vdiez2(char const **tab, int y, int x)
+static int	vdiez2(char const **tab, int y, int x)
 {
 	if (x == 0 && y == 0)
 	{
@@ -88,7 +88,7 @@ static int		vdiez2(char const **tab, int y, int x)
 	return (-1);
 }
 
-static int		vdiez(char const **tab, int y, int x)
+static int	vdiez(char const **tab, int y, int x)
 {
 	if (x == 0 || y == 0)
 		return (vdiez2(tab, y, x) == -1);
@@ -99,7 +99,7 @@ static int		vdiez(char const **tab, int y, int x)
 		return (-1);
 }
 
-int		verif2(const char **tab)
+int			verif2(const char **tab)
 {
 	int		y;
 	int		x;
@@ -109,7 +109,7 @@ int		verif2(const char **tab)
 	while (tab[y] != '\0')
 	{
 		x = 0;
-		while(tab[y][x] != '\0')
+		while (tab[y][x] != '\0')
 		{
 			if (ft_isupper(tab[y][x]) != 0)
 			{

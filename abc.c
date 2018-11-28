@@ -6,21 +6,19 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 11:27:40 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/28 10:43:26 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/28 13:44:58 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		abc(char *str)
+int			abc(char *str)
 {
 	int				i;
 	static	char	a;
 	static int		count;
 
 	i = 0;
-	if (!(str))
-		return (1);
 	if (!(a))
 		a = 'A';
 	if (count != 4)
@@ -37,15 +35,13 @@ int		abc(char *str)
 	if (count == 4)
 	{
 		count = -1;
-		if ((a + 1) == ('Z' + 1))
-			return (-1);
 		a++;
 	}
 	count++;
 	return (1);
 }
 
-int		mlink(char const **tab, int y, int x)
+static int	mlink(char const **tab, int y, int x, int i)
 {
 	int		occ;
 
@@ -54,37 +50,37 @@ int		mlink(char const **tab, int y, int x)
 		occ++;
 	if ((x - 1) != -1 && ft_isupper(tab[y][x - 1]) == 1)
 		occ++;
-	if ((y + 1) != 4 && ft_isupper(tab[y + 1][x]) == 1)
-		occ++;;
-	if ((y - 1) != -1 && ft_isupper(tab[y - 1][x]) == 1)
+	if ((i + 1) != 4 && ft_isupper(tab[y + 1][x]) == 1)
+		occ++;
+	if ((i - 1) != -1 && ft_isupper(tab[y - 1][x]) == 1)
 		occ++;
 	return (occ);
 }
 
-int		valid(char const **tab)
+int			valid(char const **tab)
 {
 	static int	y;
-	int			x;
-	int			occ;
-	int			tmp;
+	int			xoctpi[4];
 
-	occ = 0;
-	tmp = 0;
-	while (tab[y][0] != '\0' && tab[y] != NULL)
+	xoctpi[3] = 0;
+	xoctpi[1] = 0;
+	xoctpi[2] = 0;
+	while (tab[y] != NULL && tab[y][0] != '\0')
 	{
-		x = 0;
-		while(tab[y][x] != '\0')
+		xoctpi[0] = 0;
+		while(tab[y][xoctpi[0]] != '\0' && tab[y] != NULL)
 		{
-			if (ft_isupper(tab[y][x]) == 1)
+			if (ft_isupper(tab[y][xoctpi[0]]) == 1)
 			{
-				tmp = mlink(tab, y, x);
-				occ += tmp;
+				xoctpi[2] = mlink(tab, y, xoctpi[0], xoctpi[3]);
+				xoctpi[1] += xoctpi[2];
 			}
-			x++;
+			xoctpi[0]++;
 		}
+		xoctpi[3]++;
 		y++;
 	}
-	if (occ != 6)
+	if (xoctpi[1] < 6)
 		return (-1);
 	y++;
 	return (1);

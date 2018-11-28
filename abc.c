@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 11:27:40 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/28 13:44:58 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/28 13:45:47 by amerrouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int			valid(char const **tab)
 	while (tab[y] != NULL && tab[y][0] != '\0')
 	{
 		xoctpi[0] = 0;
-		while(tab[y][xoctpi[0]] != '\0' && tab[y] != NULL)
+		while (tab[y][xoctpi[0]] != '\0' && tab[y] != NULL)
 		{
 			if (ft_isupper(tab[y][xoctpi[0]]) == 1)
 			{

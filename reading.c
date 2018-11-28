@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:27:30 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/28 13:13:54 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/28 15:40:48 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static int	filltab(char **tab, char *line, size_t i)
 {
-	if (!(tab[i] = (char *)malloc(sizeof(char) * ft_strlen(line) + 1)))
-		return (0);
 	tab[i] = line;
 	return (1);
 }
@@ -58,12 +56,12 @@ char		**ft_reading(const char **argv, char **tab)
 		return (NULL);
 	while (get_next_line(fd, &line) > 0)
 	{
-		if ((count = verif1(line)) == -1)
+		if (((count = verif1(line)) == -1) || abc(line) == -1)
+		{
+			ft_strdel(&line);
 			return (ft_failreading(tab, i));
-		if (abc(line) == -1)
-			return (ft_failreading(tab, i));
-		if (!(filltab(tab, line, i)))
-			return (ft_failreading(tab, i));
+		}
+		filltab(tab, line, i);
 		i++;
 		tab[i] = NULL;
 	}

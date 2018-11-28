@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 14:48:43 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/28 10:10:08 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/28 13:53:09 by amerrouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@
 # include <sys/uio.h>
 # include <limits.h>
 
-int		ft_isupper(int c);
-int		get_next_line(const int fd, char **line);
+int				ft_isupper(int c);
+int				get_next_line(const int fd, char **line);
 
-int		ft_factorial(int nb);
-int		ft_is_prime(int nb);
-int		ft_power(int nb, int power);
+int				ft_factorial(int nb);
+int				ft_is_prime(int nb);
+int				ft_power(int nb, int power);
 
 typedef struct	s_list
 {

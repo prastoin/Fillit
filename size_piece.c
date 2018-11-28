@@ -6,7 +6,7 @@
 /*   By: amerrouc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 15:40:26 by amerrouc          #+#    #+#             */
-/*   Updated: 2018/11/24 17:05:03 by amerrouc         ###   ########.fr       */
+/*   Updated: 2018/11/28 12:47:13 by amerrouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int		height_ele(char **sqr, int size)
 
 	y_min = 5;
 	y_max = -1;
-	j = 0;
-	while (j < size)
+	j = -1;
+	while (++j < size)
 	{
 		i = 0;
 		while (i < size)
@@ -63,7 +63,6 @@ int		height_ele(char **sqr, int size)
 				y_max = i;
 			i++;
 		}
-		j++;
 	}
 	return (y_max - y_min);
 }

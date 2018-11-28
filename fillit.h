@@ -6,7 +6,7 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:28:08 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/28 11:50:12 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/28 15:50:29 by prastoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,17 @@ int				valid(const char **tab);
 int				verif1(const char *line);
 int				verif2(const char **tab);
 int				abc(char *str);
-void			mv_piece(char **sqr);
 void			rm_piece(char **map, t_struct *piece, int bloc);
 int				width_ele(char **sqr, int size);
 int				height_ele(char **sqr, int size);
 int				volume_ele(char **map, int size);
-void			mv_piece(char **sqr);
+int				move_all(char **sqr, int nb);
 int				put_piece(char **map, int size, t_struct *piece);
 t_struct		str_to_struc(char **sqr);
 char			**create_map(int nbtetri);
 int				ft_sqrt_close(int nbr);
 void			ft_reset_pos(t_struct *piece, int nb);
+char			**solver(char **tab, int nb);
+void			display_map(char **map);
 
 #endif

@@ -6,15 +6,15 @@
 /*   By: prastoin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 15:35:09 by prastoin          #+#    #+#             */
-/*   Updated: 2018/11/28 11:49:25 by prastoin         ###   ########.fr       */
+/*   Updated: 2018/11/28 14:28:36 by amerrouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fillit.h>
+#include "fillit.h"
 
 char	**create_map(int nbtetri)
 {
-	char	**map;
+	char		**map;
 	static int	c;
 	int			i;
 	int			j;
